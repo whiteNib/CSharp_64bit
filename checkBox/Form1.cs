@@ -12,9 +12,7 @@ namespace checkBox
 {
     public partial class Form1 : Form
     {
-        private CheckBox[] bitCheckBoxes;
-        
-
+        public CheckBox[] bitCheckBoxes;
 
         public Form1()
         {
@@ -24,7 +22,7 @@ namespace checkBox
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            timer1.Start();
+
         }
 
          private void InitializeBitCheckBoxes()
@@ -46,11 +44,12 @@ namespace checkBox
 
                 // 배열에 저장
                 bitCheckBoxes[i] = checkBox;
+                // 체크박스 디자인
                 checkBox.Appearance = Appearance.Button;
                 checkBox.FlatStyle = FlatStyle.Flat;
                 checkBox.FlatAppearance.BorderSize = 0;
                 checkBox.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Left);
-               
+                checkBox.Font = new Font("맑은 고딕", 12,FontStyle.Bold);
             }
         }
 
@@ -63,23 +62,23 @@ namespace checkBox
         private void UpdateResult()
         {
             // 선택된 비트를 이용한 계산 로직 추가
-            /** 예: 선택된 비트를 이용하여 2진수 값을 계산하여 표시*/
-            int result = 0;
+            long result = 0;
             for (int i = 0; i < bitCheckBoxes.Length; i++)
             {
                 if (bitCheckBoxes[i].Checked)
                 {
-                    result |= (1 << i);
+                    long temp = 1;
+                    for (int j = 0; j < i; j++)
+                    {
+                        temp *= 2;
+                    }
+                    result |= temp;
                 }
             }
 
             // 계산 결과를 텍스트 상자에 표시
             textBoxResult.Text = result.ToString();
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            
-        }
+                
     }
 }

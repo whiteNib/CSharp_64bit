@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.textBoxResult = new System.Windows.Forms.TextBox();
             this.flowLayoutPanelBits = new System.Windows.Forms.TableLayoutPanel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // textBoxResult
@@ -76,10 +74,6 @@
             this.flowLayoutPanelBits.Size = new System.Drawing.Size(1137, 340);
             this.flowLayoutPanelBits.TabIndex = 1;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -99,7 +93,6 @@
 
         private System.Windows.Forms.TextBox textBoxResult;
         private System.Windows.Forms.TableLayoutPanel flowLayoutPanelBits;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 
