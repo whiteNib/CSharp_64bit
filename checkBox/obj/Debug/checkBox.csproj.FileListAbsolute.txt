@@ -7,3 +7,13 @@ c:\users\sw dev2\documents\visual studio 2012\Projects\checkBox\bin\Debug\checkB
 c:\users\sw dev2\documents\visual studio 2012\Projects\checkBox\bin\Debug\checkBox.pdb
 c:\users\sw dev2\documents\visual studio 2012\Projects\checkBox\obj\Debug\checkBox.exe
 c:\users\sw dev2\documents\visual studio 2012\Projects\checkBox\obj\Debug\checkBox.pdb
+C:\Users\USER\Desktop\checkBox\bin\Debug\checkBox.exe.config
+C:\Users\USER\Desktop\checkBox\bin\Debug\checkBox.exe
+C:\Users\USER\Desktop\checkBox\bin\Debug\checkBox.pdb
+C:\Users\USER\Desktop\checkBox\obj\Debug\checkBox.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\checkBox\obj\Debug\checkBox.Form1.resources
+C:\Users\USER\Desktop\checkBox\obj\Debug\checkBox.Properties.Resources.resources
+C:\Users\USER\Desktop\checkBox\obj\Debug\checkBox.csproj.GenerateResource.cache
+C:\Users\USER\Desktop\checkBox\obj\Debug\checkBox.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\checkBox\obj\Debug\checkBox.exe
+C:\Users\USER\Desktop\checkBox\obj\Debug\checkBox.pdb

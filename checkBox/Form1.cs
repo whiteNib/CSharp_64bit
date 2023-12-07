@@ -22,17 +22,18 @@ namespace checkBox
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            flowLayoutPanelBits.Dock = DockStyle.Bottom;
         }
 
-         private void InitializeBitCheckBoxes()
+        private void InitializeBitCheckBoxes()
         {
             // 비트 수 설정
             int bitCount = 64;
 
             bitCheckBoxes = new CheckBox[bitCount];
 
-            for (int i = 0; i < bitCount; i++)
+
+            for (int i = bitCount - 1; i >= 0; i--)
             {
                 // CheckBox 생성
                 CheckBox checkBox = new CheckBox();
@@ -44,16 +45,22 @@ namespace checkBox
 
                 // 배열에 저장
                 bitCheckBoxes[i] = checkBox;
+
                 // 체크박스 디자인
                 checkBox.Appearance = Appearance.Button;
                 checkBox.FlatStyle = FlatStyle.Flat;
                 checkBox.FlatAppearance.BorderSize = 0;
-                checkBox.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Left);
-                checkBox.Font = new Font("맑은 고딕", 12,FontStyle.Bold);
+                checkBox.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                checkBox.Font = new Font("맑은 고딕", 14, FontStyle.Bold);
+
+                // FlatAppearance 설정
+                checkBox.FlatAppearance.MouseDownBackColor = Color.FromArgb(173, 216, 230); // 클릭 시 배경색
+                checkBox.FlatAppearance.CheckedBackColor = Color.FromArgb(243, 243, 243); // 체크 시 배경색
+
             }
         }
 
-        private void BitCheckBox_CheckedChanged(object sender, EventArgs e)
+    private void BitCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             // CheckBox가 변경되었을 때 처리할 로직 추가
             UpdateResult();
@@ -67,12 +74,13 @@ namespace checkBox
             {
                 if (bitCheckBoxes[i].Checked)
                 {
-                    long temp = 1;
-                    for (int j = 0; j < i; j++)
-                    {
-                        temp *= 2;
-                    }
-                    result |= temp;
+                    result |= (1L << i);
+                    //long temp = 1;
+                    //for (int j = 0; j < i; j++)
+                    //{
+                    //    temp *= 2;
+                    //}
+                    //result |= temp;
                 }
             }
 
