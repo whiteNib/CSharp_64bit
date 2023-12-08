@@ -17,3 +17,12 @@ C:\Users\USER\Desktop\checkBox\obj\Debug\checkBox.csproj.GenerateResource.cache
 C:\Users\USER\Desktop\checkBox\obj\Debug\checkBox.csproj.CoreCompileInputs.cache
 C:\Users\USER\Desktop\checkBox\obj\Debug\checkBox.exe
 C:\Users\USER\Desktop\checkBox\obj\Debug\checkBox.pdb
+C:\Users\SW DEV2\Downloads\CSharp_64bit-main\CSharp_64bit-main\checkBox\bin\Debug\checkBox.exe.config
+C:\Users\SW DEV2\Downloads\CSharp_64bit-main\CSharp_64bit-main\checkBox\obj\Debug\checkBox.exe
+C:\Users\SW DEV2\Downloads\CSharp_64bit-main\CSharp_64bit-main\checkBox\obj\Debug\checkBox.pdb
+C:\Users\SW DEV2\Downloads\CSharp_64bit-main\CSharp_64bit-main\checkBox\bin\Debug\checkBox.exe
+C:\Users\SW DEV2\Downloads\CSharp_64bit-main\CSharp_64bit-main\checkBox\bin\Debug\checkBox.pdb
+C:\Users\SW DEV2\Downloads\CSharp_64bit-main\CSharp_64bit-main\checkBox\obj\Debug\checkBox.csprojResolveAssemblyReference.cache
+C:\Users\SW DEV2\Downloads\CSharp_64bit-main\CSharp_64bit-main\checkBox\obj\Debug\checkBox.Form1.resources
+C:\Users\SW DEV2\Downloads\CSharp_64bit-main\CSharp_64bit-main\checkBox\obj\Debug\checkBox.Properties.Resources.resources
+C:\Users\SW DEV2\Downloads\CSharp_64bit-main\CSharp_64bit-main\checkBox\obj\Debug\checkBox.csproj.GenerateResource.Cache
