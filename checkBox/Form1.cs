@@ -27,6 +27,8 @@ namespace checkBox
             flowLayoutPanelBits.Dock = DockStyle.Bottom;
             this.MinimumSize = new System.Drawing.Size(490, 600);
             timer1.Start();
+            // textBoxResult가 10진수가 입력되는 TextBox인 것으로 가정
+            textBoxResult.TextChanged += textBoxResult_TextChanged;
         }
 
         private void InitializeBitCheckBoxes()
@@ -187,6 +189,32 @@ namespace checkBox
             tableLayoutPanel7.Height = y;
             flowLayoutPanelBits.Height = y;
         }
-                
+
+        private void textBoxResult_TextChanged(object sender, EventArgs e)
+        {
+            // textBoxResult의 텍스트가 변경되면 체크박스를 업데이트합니다.
+            if (long.TryParse(textBoxResult.Text, out long decimalValue))
+            {
+                UpdateCheckboxes(decimalValue);
+            }
+            else
+            {
+                // 입력된 텍스트가 유효한 10진수가 아닌 경우에 대한 처리
+            }
+        }
+        private void UpdateCheckboxes(long decimalValue)
+        {
+            // 10진수 값을 기반으로 체크박스 상태를 업데이트합니다.
+            for (int i = 0; i < bitCheckBoxes.Length; i++)
+            {
+                long mask = 1L << i;
+                bitCheckBoxes[i].Checked = (decimalValue & mask) != 0;
+            }
+        }
+
+        private void textBoxResult_Click(object sender, EventArgs e)
+        {
+            // 텍스트 박스를 클릭할 때 다른 컨트롤에 포커스를 이동시켜 커서를 가리키지 않도록 함
+        }
     }
 }
