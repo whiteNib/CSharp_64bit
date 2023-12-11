@@ -19,13 +19,13 @@ namespace checkBox
             InitializeComponent();
             InitializeBitCheckBoxes();
 
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             flowLayoutPanelBits.Dock = DockStyle.Bottom;
-            this.MinimumSize = new System.Drawing.Size(490, 600);
+            this.MinimumSize = new System.Drawing.Size(450, 600);
             timer1.Start();
             // textBoxResult가 10진수가 입력되는 TextBox인 것으로 가정
             textBoxResult.TextChanged += textBoxResult_TextChanged;
@@ -56,11 +56,14 @@ namespace checkBox
                 checkBox.Appearance = Appearance.Button;
                 checkBox.FlatStyle = FlatStyle.Flat;
                 checkBox.FlatAppearance.BorderSize = 0;
-                checkBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom ;
-                checkBox.Font = new Font("맑은 고딕", 12, FontStyle.Bold);
+                checkBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+                checkBox.Font = new Font("맑은 고딕", 16, FontStyle.Bold);
+                checkBox.Margin = new Padding(0,0,0,0);
+                checkBox.Dock = DockStyle.Left;
+                checkBox.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
                 // FlatAppearance 설정
-                checkBox.FlatAppearance.MouseDownBackColor = Color.FromArgb(173, 216, 230); // 클릭 시 배경색
+                checkBox.FlatAppearance.MouseDownBackColor = Color.FromArgb(243,243,243); // 클릭 시 배경색
                 checkBox.FlatAppearance.CheckedBackColor = Color.FromArgb(243, 243, 243); // 체크 시 배경색
 
             }
@@ -83,10 +86,13 @@ namespace checkBox
                 checkBox.FlatStyle = FlatStyle.Flat;
                 checkBox.FlatAppearance.BorderSize = 0;
                 checkBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-                checkBox.Font = new Font("맑은 고딕", 12, FontStyle.Bold);
+                checkBox.Font = new Font("맑은 고딕", 16, FontStyle.Bold);
+                checkBox.Margin = new Padding(0, 0, 0, 0);
+                checkBox.Dock = DockStyle.Left;
+                checkBox.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
                 // FlatAppearance 설정
-                checkBox.FlatAppearance.MouseDownBackColor = Color.FromArgb(173, 216, 230); // 클릭 시 배경색
+                checkBox.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 243, 243); // 클릭 시 배경색
                 checkBox.FlatAppearance.CheckedBackColor = Color.FromArgb(243, 243, 243); // 체크 시 배경색
 
             }
@@ -109,10 +115,13 @@ namespace checkBox
                 checkBox.FlatStyle = FlatStyle.Flat;
                 checkBox.FlatAppearance.BorderSize = 0;
                 checkBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-                checkBox.Font = new Font("맑은 고딕", 12, FontStyle.Bold);
+                checkBox.Font = new Font("맑은 고딕", 16, FontStyle.Bold);
+                checkBox.Margin = new Padding(0, 0, 0, 0);
+                checkBox.Dock = DockStyle.Left;
+                checkBox.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
                 // FlatAppearance 설정
-                checkBox.FlatAppearance.MouseDownBackColor = Color.FromArgb(173, 216, 230); // 클릭 시 배경색
+                checkBox.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 243, 243); // 클릭 시 배경색
                 checkBox.FlatAppearance.CheckedBackColor = Color.FromArgb(243, 243, 243); // 체크 시 배경색
 
             }
@@ -135,21 +144,25 @@ namespace checkBox
                 checkBox.FlatStyle = FlatStyle.Flat;
                 checkBox.FlatAppearance.BorderSize = 0;
                 checkBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-                checkBox.Font = new Font("맑은 고딕", 12, FontStyle.Bold);
+                checkBox.Font = new Font("맑은 고딕", 16, FontStyle.Bold);
+                checkBox.Margin = new Padding(0, 0, 0, 0);
+                checkBox.Dock = DockStyle.Left;
+                checkBox.FlatAppearance.MouseOverBackColor = Color.Transparent;
 
                 // FlatAppearance 설정
-                checkBox.FlatAppearance.MouseDownBackColor = Color.FromArgb(173, 216, 230); // 클릭 시 배경색
+                checkBox.FlatAppearance.MouseDownBackColor = Color.FromArgb(243, 243, 243); // 클릭 시 배경색
                 checkBox.FlatAppearance.CheckedBackColor = Color.FromArgb(243, 243, 243); // 체크 시 배경색
 
             }
         }
 
-    private void BitCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void BitCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             // CheckBox가 변경되었을 때 처리할 로직 추가
             UpdateResult();
         }
 
+        // 체크된 체크박스 처리 영역
         private void UpdateResult()
         {
             // 선택된 비트를 이용한 계산 로직 추가
@@ -160,6 +173,7 @@ namespace checkBox
                 {
                     result |= (1L << i);
                     bitCheckBoxes[i].Text = "1";
+                    bitCheckBoxes[i].ForeColor = Color.FromArgb(0,99,153);
                     //long temp = 1;
                     //for (int j = 0; j < i; j++)
                     //{
@@ -170,6 +184,7 @@ namespace checkBox
                 else
                 {
                     bitCheckBoxes[i].Text = "0";
+                    bitCheckBoxes[i].ForeColor = Color.FromArgb(0,0,0);
                 }
             }
 
@@ -188,12 +203,19 @@ namespace checkBox
             tableLayoutPanel6.Height = y;
             tableLayoutPanel7.Height = y;
             flowLayoutPanelBits.Height = y;
-        }
 
+            if (textBoxResult.Text == "")
+            {
+                textBoxResult.Text = "0";
+            }
+
+            textBoxResult.SelectionStart = textBoxResult.Text.Length;
+        }
+        long decimalValue = 0;
         private void textBoxResult_TextChanged(object sender, EventArgs e)
         {
-            // textBoxResult의 텍스트가 변경되면 체크박스를 업데이트합니다.
-            if (long.TryParse(textBoxResult.Text, out long decimalValue))
+            // textBoxResult의 텍스트가 변경되면 체크박스를 업데이트
+            if (long.TryParse(textBoxResult.Text, out decimalValue))
             {
                 UpdateCheckboxes(decimalValue);
             }
@@ -204,7 +226,7 @@ namespace checkBox
         }
         private void UpdateCheckboxes(long decimalValue)
         {
-            // 10진수 값을 기반으로 체크박스 상태를 업데이트합니다.
+            // 10진수 값을 기반으로 체크박스 상태를 업데이트
             for (int i = 0; i < bitCheckBoxes.Length; i++)
             {
                 long mask = 1L << i;
@@ -216,5 +238,6 @@ namespace checkBox
         {
             // 텍스트 박스를 클릭할 때 다른 컨트롤에 포커스를 이동시켜 커서를 가리키지 않도록 함
         }
+                
     }
 }
